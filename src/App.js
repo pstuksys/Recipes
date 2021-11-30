@@ -6,7 +6,7 @@ import RecipeList from './components/RecipeList';
 
 
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="App">
       <Header />

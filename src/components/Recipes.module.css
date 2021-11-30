@@ -4,13 +4,16 @@
   border-radius: 10px;
   color: white;
 }
+.recipe img {
+  border-radius: 50px;
+}
 
 .recipe h2 {
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .recipe h3 {
-  color: rgba(255, 255, 255, 0.438);
+  color: rgba(255, 255, 255, 0.952);
   margin: 0;
   font-size: 1rem;
 }

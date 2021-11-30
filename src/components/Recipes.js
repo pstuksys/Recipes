@@ -8,7 +8,7 @@ const Recipes = (props) => {
             <h3>{props.type}</h3>
             <p>{props.ingredients}</p>
             <img src={props.image} alt='recipe' />
-            <h3>{props.colories}</h3>
+            <h3> Colories: {props.colories.toFixed()}</h3>
         </li>
     )
 }
