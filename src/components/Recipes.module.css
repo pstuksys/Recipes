@@ -1,0 +1,16 @@
+.recipe {
+  text-align: center;
+  background-color: burlywood;
+  border-radius: 10px;
+  color: white;
+}
+
+.recipe h2 {
+  color: white;
+  font-size: 2rem;
+}
+.recipe h3 {
+  color: rgba(255, 255, 255, 0.438);
+  margin: 0;
+  font-size: 1rem;
+}

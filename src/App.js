@@ -6,9 +6,9 @@ import RecipeList from './components/RecipeList';
 
 
 
-const App = () => {
+const App = (props) => {
   return (
-    <div>
+    <div className="App">
       <Header />
       <RecipeList />
     </div>

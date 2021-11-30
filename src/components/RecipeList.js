@@ -28,12 +28,25 @@ const RecipeList = () => {
         })
     }
 
+
     return (
         <div>
+            {/* add later to header button */}
             <section>
-
                 <button recipes={recipes} onClick={fetchRecipeData}>fetch</button>
             </section>
+            <ul>
+                {recipes.map((recipe) => (
+                    <Recipes
+                        title={recipe.title}
+                        type={recipe.type}
+                        ingredients={recipes.ingredients}
+                        image={recipe.image}
+                        colories={recipe.colories}
+                    />
+                ))}
+
+            </ul>
         </div>
     )
 }
