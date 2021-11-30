@@ -8,7 +8,7 @@ import RecipeList from './components/RecipeList';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <Header />
       <RecipeList />
     </div>
