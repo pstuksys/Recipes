@@ -1,8 +1,9 @@
 .recipe {
   text-align: center;
   background-color: burlywood;
-  border-radius: 10px;
+  border-radius: 30px;
   color: white;
+  margin: 1px;
 }
 .recipe img {
   border-radius: 50px;

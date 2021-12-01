@@ -4,8 +4,6 @@ import classes from './RecipeList.module.css'
 import Recipes from './Recipes'
 
 
-// const url = 'https://api.edamam.com/api/recipes/v2?type=public&q=eggs&app_id=2fe8dbd7&app_key=8da60e03621775d245e6c92261d0a51e'
-
 const RecipeList = () => {
 
     const [recipes, setRecipes] = useState([])
@@ -28,19 +26,32 @@ const RecipeList = () => {
         fetch(url).then(response => {
             return response.json()
         }).then(data => {
+            const ingredientData = data.hits.map((ingredientData) => {
+                return {
+                    text: ingredientData.recipe.ingredients.map(e => e.text),
+                    quantity: ingredientData.recipe.ingredients.map(e => e.quantity),
+                    measure: ingredientData.recipe.ingredients.map(e => e.measure),
+                    food: ingredientData.recipe.ingredients.map(e => e.food),
+                    weight: ingredientData.recipe.ingredients.map(e => e.weight)
+                }
+            })
             const transformedRecipes = data.hits.map(recipeData => {
                 return {
                     title: recipeData.recipe.label,
                     type: recipeData.recipe.mealType,
-                    ingredients: recipeData.recipe.ingredients,
+                    ingredients: [
+                        recipeData.recipe.ingredients.map(e => e.text)
+                    ],
                     image: recipeData.recipe.image,
                     colories: recipeData.recipe.calories
                 }
             })
             setRecipes(transformedRecipes)
             console.log(transformedRecipes)
+            console.log(ingredientData)
         })
     }
+
 
 
     return (
@@ -59,7 +70,7 @@ const RecipeList = () => {
                             key={Math.random() * 99999}
                             title={recipe.title}
                             type={recipe.type}
-                            ingredients={recipes.ingredients}
+                            ingredients={recipe.ingredients}
                             image={recipe.image}
                             colories={recipe.colories}
                         />
@@ -71,21 +82,3 @@ const RecipeList = () => {
 }
 
 export default RecipeList
-
-
-//fix ingredients nested array of objects.
-
-// .then(data => {
-//     const allIngredients = data.hits.ingredients.map((ingredientData) => {
-//         return {
-//             ingredient: ingredientData.text,
-//             quantity: ingredientData.quantity,
-//             measure: ingredientData.measure,
-//             food: ingredientData.food,
-//             weight: ingredientData.weight,
-//             id: ingredientData.foodId
-//         }
-//     })
-//     setIngredients(getIngredients)
-//     console.log(allIngredients)
-// })
